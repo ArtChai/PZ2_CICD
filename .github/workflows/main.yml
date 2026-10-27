@@ -10,3 +10,11 @@ jobs:
       - run: python3 -m py_compile main.py operations.py messages.py
       - run: sleep 30
       - run: python3 test_operations.py
+      - run: python3 -m pydoc -w operations messages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: |
+            operations.html
+            messates.html
+
